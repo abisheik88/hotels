@@ -1,0 +1,19 @@
+type Hotel @key(fields: "id") {
+  id: ID!
+  address: String
+  review: Review
+}
+type Review @key(fields: "id") {
+  id: ID
+}
+input CreateHotel {
+  address: String!
+}
+type Query {
+  hotels: [Hotel!]!
+  hotel(id: ID!): Hotel
+}
+
+type Mutation {
+  createHotel(input: CreateHotel): Hotel!
+}
